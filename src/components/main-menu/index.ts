@@ -1,0 +1,1 @@
+export { CONTENT_TYPE } from './consts';
