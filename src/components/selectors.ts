@@ -4,5 +4,5 @@ import { IStateWithMainPage } from "./types";
 export const mainPageSelector = (state: IStateWithMainPage) =>
   state[STATE_NAME];
 
-export const menuItemIdSelector = (state: IStateWithMainPage) =>
-  mainPageSelector(state).menuItemId;
+export const valuesSelector = (state: IStateWithMainPage) =>
+  mainPageSelector(state).values;

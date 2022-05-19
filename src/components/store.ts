@@ -1,26 +1,26 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { STORE_NAME } from "./consts";
-import { IMainPageState } from "./types";
+import { IMainPageState, ITestData } from "./types";
 
 const INIT_STATE: IMainPageState = {
-  menuItemId: 1,
+  values: [],
 };
 
 const mainPageStore = createSlice({
   name: STORE_NAME,
   initialState: INIT_STATE,
   reducers: {
-    setMenuItemId: (
+    setValue: (
       state,
-      { payload: id }: PayloadAction<number>
+      { payload: values }: PayloadAction<ITestData[]>
     ) => {
-      state.menuItemId = id;
+      state.values = values;
     },
   },
 });
 
-/* export const GET_START_VALUES = `${STORE_NAME}/get-start-values`;
-export const GET_CARDS_DATA = `${STORE_NAME}/get-cards-data`;
+export const GET_VALUES = `${STORE_NAME}/get-values`;
+/*export const GET_CARDS_DATA = `${STORE_NAME}/get-cards-data`;
 export const GET_TRADING_ACCOUNTS = `${STORE_NAME}/get-trading-accounts`;
 export const TRANSACTION_SUBMIT_FORM = `${STORE_NAME}/transaction-submit-form`;
 export const GET_CURRENCIES_FOR_OTHER_DEPOSIT = `${STORE_NAME}/get-currencies-for-other-deposit`;
@@ -30,8 +30,8 @@ export const GET_PAYMENT_METHODS = `${STORE_NAME}/get-payment-methods`; */
 
 export const mainPageActions = {
   ...mainPageStore.actions,
-/*   getStartValues: createAction<number>(GET_START_VALUES),
-  getCardsData: createAction(GET_CARDS_DATA),
+  getValues: createAction(GET_VALUES),
+  /*getCardsData: createAction(GET_CARDS_DATA),
   getTradingAccounts: createAction(GET_TRADING_ACCOUNTS),
   submitFormTransaction: createAction(TRANSACTION_SUBMIT_FORM),
   getCurrenciesForOtherDeposit: createAction(GET_CURRENCIES_FOR_OTHER_DEPOSIT),

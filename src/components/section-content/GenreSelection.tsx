@@ -1,11 +1,11 @@
 import { Drawer, Toolbar } from "devextreme-react";
 import { useCallback, useState } from "react";
-import { Route, Routes } from "react-router-dom";
 import { CONTENT_TYPE } from "../main-menu";
 import { Films } from "./Films";
+import { GenreRoute } from "./GenreRoute";
 import { NavigationList } from "./NavigationList";
 import { Serial } from "./Serial";
-import { ContentWrapper, ToolbarWrapper } from "./styled";
+import { ToolbarWrapper } from "./styled";
 import { IGenreSelectionProps } from "./types";
 
 export const GenreSelection: React.FC<IGenreSelectionProps> = ({ type }) => {
@@ -36,14 +36,10 @@ export const GenreSelection: React.FC<IGenreSelectionProps> = ({ type }) => {
         openedStateMode='shrink'
         position="before"
         revealMode='slide'
-        component={NavigationList}
         closeOnOutsideClick={true}
+        render={NavigationList}
         height='max-content'>
-        <div id="content" className="dx-theme-background-color">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
+        <GenreRoute />
       </Drawer>
     </>
   )
